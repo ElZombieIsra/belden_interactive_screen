@@ -1,0 +1,28 @@
+body{
+    color: blue;
+    background-color: #dddddd;
+}
+
+.clearfix{
+    margin: 1rem 0;
+}
+
+.btn-hexagon{
+    height: 7rem;
+    width: 7rem;
+    border-bottom-style: solid;
+    border-radius: 500px;
+}
+
+.info .header{
+    height: 2.5rem;
+    background-color: blue;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.info .content .row div{
+    border: 1px solid #d6d6d6;
+    font-weight: normal;
+    height: 30px;
+}
