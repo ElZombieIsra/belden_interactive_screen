@@ -636,7 +636,7 @@ function getConfig(option) {
                     ]
                 }
             ],
-            menu: null
+            menu: 'menu.html?option=10'
         };
     } else if (option == 11) {
         config = {

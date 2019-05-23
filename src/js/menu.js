@@ -93,6 +93,50 @@ function getConfig(option) {
                 }
             ]
         }
+    } else if (option == 10) {
+        config = {
+            title: 'Collaboration Room',
+            subtitle: 'Selection Scene',
+            video: 'SLIDE 10.mp4',
+            buttons: [
+                {
+                    size: 75,
+                    top: '44%',
+                    left: '27%',
+                    url: './scene_detail.html?option=11'
+                },
+                {
+                    size: 50,
+                    top: '40%',
+                    left: '50%',
+                    url: './scene_detail.html?option=07'
+                },
+                {
+                    size: 35,
+                    top: '47%',
+                    left: '57%',
+                    url: './scene_detail.html?option=06'
+                },
+                {
+                    size: 45,
+                    top: '22%',
+                    left: '66%',
+                    url: './scene_detail.html?option=05'
+                },
+                {
+                    size: 70,
+                    top: '49%',
+                    left: '66%',
+                    url: './scene_detail.html?option=13'
+                },
+                {
+                    size: 120,
+                    top: '6%',
+                    left: '76%',
+                    url: './scene_detail.html?option=09'
+                }
+            ]
+        }
     }
     return config;
 }
