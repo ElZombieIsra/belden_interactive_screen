@@ -22,11 +22,16 @@
   },
   "build": {
     "appId": "com.beldenscreen.app",
-    "mac": {
-      "category": "your.app.category.type"
-    },
     "win": {
-      "target": "NSIS"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
     }
   }
 }

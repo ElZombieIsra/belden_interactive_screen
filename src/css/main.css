@@ -1,28 +1,126 @@
-body{
+body {
     color: blue;
     background-color: #dddddd;
 }
 
-.clearfix{
+body .container-fluid{
+    padding: 4rem 7rem;
+}
+
+.clearfix {
     margin: 1rem 0;
+    height: 1px;
 }
 
-.btn-hexagon{
-    height: 7rem;
-    width: 7rem;
-    border-bottom-style: solid;
-    border-radius: 500px;
-}
-
-.info .header{
+.info .header {
     height: 2.5rem;
     background-color: blue;
     color: white;
     font-size: 1.5rem;
 }
 
-.info .content .row div{
+.info .content .row div {
     border: 1px solid #d6d6d6;
     font-weight: normal;
     height: 30px;
+}
+
+.btn-hexagon {
+    position: relative;
+    width: 120px; 
+    height: 69.28px;
+    margin: 34.64px 0;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: rgb(199, 199, 199);
+    text-align: center;
+}
+
+.btn-hexagon p{
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.btn-hexagon:before,
+.btn-hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+}
+
+.btn-hexagon:before {
+    bottom: 100%;
+    left: 0;
+    border-bottom: 34.64px solid rgb(199, 199, 199);
+}
+
+.btn-hexagon:after {
+    top: 100%;
+    left: 0;
+    width: 0;
+    border-top: 34.64px solid rgb(199, 199, 199);
+}
+
+.btn-hexagon.home{
+    background-color: rgb(79, 160, 46);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.btn-hexagon.home:before{
+    border-bottom: 34.64px solid rgb(79, 160, 46);
+}
+
+.btn-hexagon.home:after{
+    border-top: 34.64px solid rgb(79, 160, 46);
+}
+
+.btn-hexagon.active{
+    background-color: rgb(12, 21, 138);
+    color: white;
+}
+
+.btn-hexagon.active:before{
+    border-bottom: 34.64px solid rgb(12, 21, 138);
+}
+
+.btn-hexagon.active:after{
+    border-top: 34.64px solid rgb(12, 21, 138);
+}
+
+.arrow{
+    position: absolute;
+    top: 47%;
+    cursor: pointer;
+    display: none;
+}
+
+.arrow.right{
+    right: 10px;
+}
+
+.arrow.left{
+    left: 10px;
+    display: block;
+}
+
+.title{
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.title.green{
+    color: rgb(79, 160, 46);
+}
+
+.btn-invisible{
+    position: absolute;
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
 }

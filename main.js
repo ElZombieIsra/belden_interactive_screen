@@ -12,14 +12,15 @@ function createWindow () {
     height: 1080,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    frame: false
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('src/index.html')
 
   // Open the DevTools.
-//   mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
