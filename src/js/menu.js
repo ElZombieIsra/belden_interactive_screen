@@ -49,6 +49,50 @@ function getConfig(option) {
                 }
             ]
         }
+    } else if (option == 03) {
+        config = {
+            title: 'Interior Smart Building',
+            subtitle: 'Selection Scene',
+            video: 'SLIDE 03.mp4',
+            buttons: [
+                {
+                    size: 55,
+                    top: '44%',
+                    left: '9%',
+                    url: './scene_detail.html?option=04'
+                },
+                {
+                    size: 40,
+                    top: '47.5%',
+                    left: '19.3%',
+                    url: './scene_detail.html?option=04'
+                },
+                {
+                    size: 55,
+                    top: '58%',
+                    left: '23.5%',
+                    url: './scene_detail.html?option=06'
+                },
+                {
+                    size: 65,
+                    top: '33%',
+                    left: '48%',
+                    url: './scene_detail.html?option=05'
+                },
+                {
+                    size: 55,
+                    top: '45%',
+                    left: '46.5%',
+                    url: './scene_detail.html?option=09'
+                },
+                {
+                    size: 45,
+                    top: '54.5%',
+                    left: '49%',
+                    url: './scene_detail.html?option=13'
+                }
+            ]
+        }
     }
     return config;
 }

@@ -54,7 +54,8 @@ $(function () {
     } else {
         btns.trigger('click')
     }
-
+    console.log(config.menu, !!config.menu);
+    
     if (config.menu) {
         $('.arrow.right').css('display', 'block');
         $('.arrow').on('click', function (e) {
@@ -146,7 +147,7 @@ function getConfig(option) {
                     ]
                 }
             ],
-            menu: null
+            menu: 'menu.html?option=03'
         };
     } else if (option == 04) {
         config = {
