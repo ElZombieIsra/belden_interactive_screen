@@ -33,19 +33,30 @@ $(function () {
     $('.video').attr('src', videoUrl + config.video);
 
     // Creates the master categories buttons
-    let btn_columns = $('.nav .col-md-2');
     config.master_categories.forEach(function (m_cat, i) {
-        $(btn_columns[i]).html(`<div class="btn-hexagon btn-infor" btn="${i}">
-            <p>${m_cat.name}</p> 
-        </div>`)
+        let btn;
+        console.log(m_cat.name === 'Field-Term', m_cat.name);
+
+        if (m_cat.name === 'Field-Term') {
+            btn = $('.btn-FT');
+            btn.attr('src', './media/images/08FTButton.png');
+        } else if (m_cat.name === 'Pre-Term') {
+            btn = $('.btn-PT');
+            btn.attr('src', './media/images/11PTButton.png');
+        } else {
+            btn = $('.btn-ZB')
+            btn.attr('src', './media/images/12ZBEButton.png');
+        }
+
+        if (btn) btn.addClass('btn-infor')
     })
 
     // Handles button click
     let btns = $('.btn-infor');
     btns.on('click', function (e) {
         e.preventDefault();
-        $('.btn-infor').removeClass('active');
-        $(this).addClass('active');
+        $('.btn-selected').remove();
+        $(this).parent().append(`<img src="./media/images/09ButtonSelected.png" class="w-100 btn-selected">`)
         updateCategorieInfo($(this).attr('btn'));
     })
 
@@ -55,7 +66,7 @@ $(function () {
         btns.trigger('click')
     }
     console.log(config.menu, !!config.menu);
-    
+
     if (config.menu) {
         $('.arrow.right').css('display', 'block');
         $('.arrow').on('click', function (e) {

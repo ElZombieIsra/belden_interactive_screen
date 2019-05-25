@@ -1,10 +1,66 @@
-body {
-    color: blue;
-    background-color: #dddddd;
+@font-face {
+    font-family: 'museo_sans';
+    src: url('../media/fonts/museosans-100-webfont.woff2') format('woff2'),
+        url('../media/fonts/museosans-100-webfont.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'museo_sans';
+    src: url('../media/fonts/museosans-300-webfont.woff2') format('woff2'),
+        url('../media/fonts/museosans-300-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
 }
 
-body .container-fluid{
+@font-face {
+    font-family: 'museo_sans';
+    src: url('../media/fonts/museosans_500-webfont.woff2') format('woff2'),
+        url('../media/fonts/museosans_500-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'museo_sans';
+    src: url('../media/fonts/museosans_700-webfont.woff2') format('woff2'),
+        url('../media/fonts/museosans_700-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'museo_sans';
+    src: url('../media/fonts/museosans_900-webfont.woff2') format('woff2'),
+        url('../media/fonts/museosans_900-webfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+body {
+    color: rgb(0, 73, 144);
+    background-color: #dddddd;
+    font-family: 'museo_sans';
+    overflow-y: hidden;
+}
+
+body .container-fluid {
     padding: 4rem 7rem;
+}
+
+.scene-title{
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.scene-subtitle{
+    font-weight: 300;
+    font-size: 2rem;
 }
 
 .clearfix {
@@ -13,21 +69,22 @@ body .container-fluid{
 }
 
 .info .header {
-    height: 2.5rem;
-    background-color: blue;
+    padding: 4px 0;
+    background-color: rgb(0, 73, 144);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .info .content .row div {
     border: 1px solid #d6d6d6;
-    font-weight: normal;
-    height: 30px;
+    font-weight: 500;
+    padding: 5px 10px;
+    font-size: 1.2rem;
 }
 
 .btn-hexagon {
     position: relative;
-    width: 120px; 
+    width: 120px;
     height: 69.28px;
     margin: 34.64px 0;
     color: black;
@@ -37,7 +94,7 @@ body .container-fluid{
     text-align: center;
 }
 
-.btn-hexagon p{
+.btn-hexagon p {
     position: relative;
     top: 50%;
     -ms-transform: translateY(-50%);
@@ -66,61 +123,76 @@ body .container-fluid{
     border-top: 34.64px solid rgb(199, 199, 199);
 }
 
-.btn-hexagon.home{
+.btn-hexagon.home {
     background-color: rgb(79, 160, 46);
     color: white;
     font-size: 1.5rem;
 }
 
-.btn-hexagon.home:before{
+.btn-hexagon.home:before {
     border-bottom: 34.64px solid rgb(79, 160, 46);
 }
 
-.btn-hexagon.home:after{
+.btn-hexagon.home:after {
     border-top: 34.64px solid rgb(79, 160, 46);
 }
 
-.btn-hexagon.active{
+.btn-hexagon.active {
     background-color: rgb(12, 21, 138);
     color: white;
 }
 
-.btn-hexagon.active:before{
+.btn-hexagon.active:before {
     border-bottom: 34.64px solid rgb(12, 21, 138);
 }
 
-.btn-hexagon.active:after{
+.btn-hexagon.active:after {
     border-top: 34.64px solid rgb(12, 21, 138);
 }
 
-.arrow{
+.btn-invisible {
+    position: absolute;
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
+}
+
+.btn-selected{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.btn-infor{
+    cursor: pointer;
+}
+
+.arrow {
     position: absolute;
     top: 47%;
     cursor: pointer;
     display: none;
 }
 
-.arrow.right{
+.arrow.right {
     right: 10px;
 }
 
-.arrow.left{
+.arrow.left {
     left: 10px;
     display: block;
 }
 
-.title{
+.title {
     font-size: 2.2rem;
     font-weight: 300;
 }
 
-.title.green{
+.title.green {
     color: rgb(79, 160, 46);
 }
 
-.btn-invisible{
-    position: absolute;
-    background-color: transparent;
-    width: 80px;
-    height: 80px;
+.pointer{
+    cursor: pointer;
 }
