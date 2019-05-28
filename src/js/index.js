@@ -35,21 +35,23 @@ $(function () {
     // Creates the master categories buttons
     config.master_categories.forEach(function (m_cat, i) {
         let btn;
-        console.log(m_cat.name === 'Field-Term', m_cat.name);
 
         if (m_cat.name === 'Field-Term') {
             btn = $('.btn-FT');
-            btn.attr('src', './media/images/08FTButton.png');
+            btn.attr('src', './media/images/FT-OFF.png');
+            btn.attr('type', 'FT');
         } else if (m_cat.name === 'Pre-Term') {
             btn = $('.btn-PT');
-            btn.attr('src', './media/images/11PTButton.png');
-        } else if(m_cat.name === 'UTP' || m_cat.name === 'STP'){
-            btn = $(m_cat.name === 'UTP' ? '.btn-FT' : '.btn-PT')
-            btn.attr('src', './media/images/ButtonEmpty.png');
-            btn.parent().append('<div class="btn-title">' + m_cat.name + '</div>')
-        } else {
-            btn = $('.btn-ZB')
-            btn.attr('src', './media/images/12ZBEButton.png');
+            btn.attr('src', './media/images/PT-OFF.png');
+            btn.attr('type', 'PT');
+        } else if(m_cat.name === 'UTP'){
+            btn = $('.btn-FT')
+            btn.attr('src', './media/images/UTP-OFF.png');
+            btn.attr('type', 'UTP');
+        } else if (m_cat.name === 'STP') {
+            btn = $('.btn-PT');
+            btn.attr('src', './media/images/STP-OFF.png');
+            btn.attr('type', 'STP');
         }
 
         if (btn) btn.addClass('btn-infor')
@@ -59,9 +61,27 @@ $(function () {
     let btns = $('.btn-infor');
     btns.on('click', function (e) {
         e.preventDefault();
+
+        // Destroys overlay
         $('.btn-selected').remove();
+
+        $('.btn-infor.active').attr('src', './media/images/' + $('.btn-infor.active').attr('type') + '-OFF.png');
+        $('.btn-infor.active').removeClass('active');
+
+        $(this).addClass('active');
+        $(this).attr('src', './media/images/' + $(this).attr('type') + '-ON.png')
         $(this).parent().append(`<img src="./media/images/09ButtonSelected.png" class="w-100 btn-selected">`)
+
+        // Centers border overlay
+        if($('.exception .btn-selected').length){
+            $('.exception .btn-selected').css('left', (calcPX($('.exception').css('width')) / 2) - (calcPX($('.exception .btn-selected').css('width')) / 2))
+        }
         updateCategorieInfo($(this).attr('btn'));
+
+        function calcPX(px) {
+            let val = px.replace('px', '');
+            return parseInt(val);
+        }
     })
 
     if (typeof btns === 'object') {
@@ -69,7 +89,6 @@ $(function () {
     } else {
         btns.trigger('click')
     }
-    console.log(config.menu, !!config.menu);
 
     if (config.menu) {
         $('.arrow.right').css('display', 'block');
@@ -94,6 +113,7 @@ function updateCategorieInfo(index) {
             <div class="content">`;
         
         let flex = false;
+        
         cat.items.forEach(function (item, i) {
             if (item.type === 'Plug') {
                 html += `<div class="row">
@@ -113,10 +133,9 @@ function updateCategorieInfo(index) {
         });
         html += `</div></div>`;
         container.append(html);
-        console.log(flex);
         
-        if(!flex){
-            let cont = $('.info .plug')
+        let cont = $('.info .plug')
+        if(!flex && cont.length){
             cont[cont.length - 1].remove();
         }
     })
@@ -520,8 +539,8 @@ function getConfig(option) {
         };
     } else if (option == 08) {
         config = {
-            title: 'BMS - Access Control, Sensors Scene',
-            subtitle: null,
+            title: 'BMS - Access Control',
+            subtitle: 'Sensors Scene',
             video: 'SLIDE 08 REAL.mp4',
             master_categories: [{
                     name: 'Field-Term',

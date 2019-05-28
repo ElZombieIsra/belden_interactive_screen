@@ -55,7 +55,7 @@ body .container-fluid {
 }
 
 .scene-title {
-    font-weight: 700;
+    font-weight: 900;
     font-size: 2.5rem;
 }
 
@@ -219,6 +219,10 @@ body .container-fluid {
     font-size: 1.5rem;
     font-weight: 500;
     color: white;
+}
+
+.exception img{
+    max-width: 50%;
 }
 
 @media(max-width: 1280px) {
