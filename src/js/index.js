@@ -43,6 +43,10 @@ $(function () {
         } else if (m_cat.name === 'Pre-Term') {
             btn = $('.btn-PT');
             btn.attr('src', './media/images/11PTButton.png');
+        } else if(m_cat.name === 'UTP' || m_cat.name === 'STP'){
+            btn = $(m_cat.name === 'UTP' ? '.btn-FT' : '.btn-PT')
+            btn.attr('src', './media/images/ButtonEmpty.png');
+            btn.parent().append('<div class="btn-title">' + m_cat.name + '</div>')
         } else {
             btn = $('.btn-ZB')
             btn.attr('src', './media/images/12ZBEButton.png');
@@ -88,8 +92,16 @@ function updateCategorieInfo(index) {
                 </div>
             </div>
             <div class="content">`;
-
+        
+        let flex = false;
         cat.items.forEach(function (item, i) {
+            if (item.type === 'Plug') {
+                html += `<div class="row">
+                    <div class="col-md-12 text-center plug">Plug Options</div>
+                </div>`
+            } else if (item.type === 'FlexPlug') {
+                flex = true;
+            }
             html += `<div class="row">
                 <div class="col-md-6">
                     ${item.type}
@@ -101,6 +113,12 @@ function updateCategorieInfo(index) {
         });
         html += `</div></div>`;
         container.append(html);
+        console.log(flex);
+        
+        if(!flex){
+            let cont = $('.info .plug')
+            cont[cont.length - 1].remove();
+        }
     })
 }
 

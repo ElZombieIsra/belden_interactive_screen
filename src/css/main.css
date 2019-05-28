@@ -6,6 +6,7 @@
     font-style: normal;
 
 }
+
 @font-face {
     font-family: 'museo_sans';
     src: url('../media/fonts/museosans-300-webfont.woff2') format('woff2'),
@@ -53,12 +54,12 @@ body .container-fluid {
     padding: 4rem 7rem;
 }
 
-.scene-title{
+.scene-title {
     font-weight: 700;
     font-size: 2.5rem;
 }
 
-.scene-subtitle{
+.scene-subtitle {
     font-weight: 300;
     font-size: 2rem;
 }
@@ -157,14 +158,14 @@ body .container-fluid {
     height: 80px;
 }
 
-.btn-selected{
+.btn-selected {
     position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
 }
 
-.btn-infor{
+.btn-infor {
     cursor: pointer;
 }
 
@@ -173,6 +174,11 @@ body .container-fluid {
     top: 47%;
     cursor: pointer;
     display: none;
+}
+
+.arrow img {
+    width: 50px;
+    height: 70px;
 }
 
 .arrow.right {
@@ -193,6 +199,80 @@ body .container-fluid {
     color: rgb(79, 160, 46);
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
+}
+
+.video-container img {
+    position: absolute;
+    left: calc(50% - 2.5vw);
+    top: 80%;
+    width: 5vw;
+    pointer-events: none;
+}
+
+.btn-title {
+    pointer-events: none;
+    position: absolute;
+    top: 33%;
+    left: 35%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+}
+
+@media(max-width: 1280px) {
+
+    body .container-fluid {
+        padding: 1rem 4rem;
+    }
+
+    .scene-title {
+        font-size: 2rem;
+    }
+
+    .scene-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .clearfix {
+        margin: .5rem 0;
+    }
+
+    .info .header {
+        padding: 4px 0;
+        font-size: 1.4rem;
+    }
+
+    .info .content .row div {
+        padding: 5px 10px;
+        font-size: 1rem;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 47%;
+        cursor: pointer;
+        display: none;
+    }
+
+    .arrow img {
+        width: 40px;
+        height: 60px;
+    }
+
+    .arrow.right {
+        right: 5px;
+    }
+
+    .arrow.left {
+        left: 5px;
+        display: block;
+    }
+
+    .btn-title{
+        top: 33%;
+        left: 35%;
+        font-size: 1rem;
+    }
 }
