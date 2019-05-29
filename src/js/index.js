@@ -1,4 +1,15 @@
 let option = getUrlParameter('option'),
+    detailOptions = [
+        02,
+        04,
+        06,
+        05,
+        07,
+        08,
+        09,
+        11,
+        13
+    ],
     videoUrl = './media/videos/',
     config = getConfig(option);
 
@@ -27,9 +38,26 @@ $(function () {
 
 
 
-    // Sets scene title, subtitle and video
+    // Sets scene icon, title and subtitle
+    $('.icon').attr('src', './media/images/icons/' + parseInt(option) + '.png')
     $('.scene-title').text(config.title);
-    $('.scene-subtitle').text(config.subtitle);
+    $('.scene-subtitle').html(config.subtitle || '&nbsp;');
+
+    // Sets back and next button
+    let indexOption = detailOptions.indexOf(parseInt(option)),
+        backOption = () => {
+            let _opt = indexOption - 1;
+            if (_opt < 0) {
+                _opt = detailOptions.length - 1;
+            }
+            return detailOptions[_opt];
+        },
+        nextOption = detailOptions[(indexOption + 1) % (detailOptions.length)];
+
+        
+    $('.back').attr('href', 'scene_detail.html?option=' + backOption());
+    $('.next').attr('href', 'scene_detail.html?option=' + nextOption);
+    
     $('.video').attr('src', videoUrl + config.video);
 
     // Creates the master categories buttons
@@ -143,7 +171,7 @@ function updateCategorieInfo(index) {
 
 function getConfig(option) {
     let config;
-    if (option == 02) {
+    if (option == detailOptions[0]) {
         config = {
             title: 'Outdoor Security',
             subtitle: 'Monitoring',
@@ -197,7 +225,7 @@ function getConfig(option) {
             ],
             menu: 'menu.html?option=03'
         };
-    } else if (option == 04) {
+    } else if (option == detailOptions[1]) {
         config = {
             title: 'Indoor IP Security Camera Scene',
             subtitle: null,
@@ -289,7 +317,7 @@ function getConfig(option) {
             ],
             menu: null
         };
-    } else if (option == 06) {
+    } else if (option == detailOptions[2]) {
         config = {
             title: 'Digital Kiosk',
             subtitle: 'POS Scene',
@@ -381,7 +409,7 @@ function getConfig(option) {
             ],
             menu: null
         };
-    } else if (option == 05) {
+    } else if (option == detailOptions[3]) {
         config = {
             title: 'Intellent Lighting Scene',
             subtitle: null,
@@ -453,7 +481,7 @@ function getConfig(option) {
             ],
             menu: null
         };
-    } else if (option == 07) {
+    } else if (option == detailOptions[4]) {
         config = {
             title: 'AV',
             subtitle: 'Digital Signage Scene',
@@ -537,7 +565,7 @@ function getConfig(option) {
             ],
             menu: null
         };
-    } else if (option == 08) {
+    } else if (option == detailOptions[5]) {
         config = {
             title: 'BMS - Access Control',
             subtitle: 'Sensors Scene',
@@ -589,7 +617,7 @@ function getConfig(option) {
             ],
             menu: null
         };
-    } else if (option == 09) {
+    } else if (option == detailOptions[6]) {
         config = {
             title: 'WAP Scene',
             subtitle: null,
@@ -686,7 +714,7 @@ function getConfig(option) {
             ],
             menu: 'menu.html?option=10'
         };
-    } else if (option == 11) {
+    } else if (option == detailOptions[7]) {
         config = {
             title: 'Conference Room',
             subtitle: 'A/V Scene',
@@ -770,10 +798,10 @@ function getConfig(option) {
             ],
             menu: './menu.html?option=12'
         };
-    } else if (option == 13) {
+    } else if (option == detailOptions[8]) {
         config = {
-            title: 'Wired LAN / Wall Outlet Scene',
-            subtitle: null,
+            title: 'Wired LAN',
+            subtitle: 'Wall Outlet Scene',
             video: 'SLIDE 13 REAL.mp4',
             master_categories: [{
                     name: 'Field-Term',

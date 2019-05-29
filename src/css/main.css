@@ -77,6 +77,7 @@ body .container-fluid {
 }
 
 .info .content .row div {
+    background-color: #dddddd;
     border: 1px solid #d6d6d6;
     font-weight: 500;
     padding: 5px 10px;
@@ -225,6 +226,18 @@ body .container-fluid {
     max-width: 50%;
 }
 
+.icon{
+    width: 150%;
+}
+
+video.background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 @media(max-width: 1280px) {
 
     body .container-fluid {
@@ -278,5 +291,9 @@ body .container-fluid {
         top: 33%;
         left: 35%;
         font-size: 1rem;
+    }
+
+    .icon{
+        width: 180%;
     }
 }
