@@ -54,10 +54,10 @@ $(function () {
         },
         nextOption = detailOptions[(indexOption + 1) % (detailOptions.length)];
 
-        
+
     $('.back').attr('href', 'scene_detail.html?option=' + backOption());
     $('.next').attr('href', 'scene_detail.html?option=' + nextOption);
-    
+
     $('.video').attr('src', videoUrl + config.video);
 
     // Creates the master categories buttons
@@ -72,7 +72,7 @@ $(function () {
             btn = $('.btn-PT');
             btn.attr('src', './media/images/PT-OFF.png');
             btn.attr('type', 'PT');
-        } else if(m_cat.name === 'UTP'){
+        } else if (m_cat.name === 'UTP') {
             btn = $('.btn-FT')
             btn.attr('src', './media/images/UTP-OFF.png');
             btn.attr('type', 'UTP');
@@ -101,7 +101,7 @@ $(function () {
         $(this).parent().append(`<img src="./media/images/09ButtonSelected.png" class="w-100 btn-selected">`)
 
         // Centers border overlay
-        if($('.exception .btn-selected').length){
+        if ($('.exception .btn-selected').length) {
             $('.exception .btn-selected').css('left', (calcPX($('.exception').css('width')) / 2) - (calcPX($('.exception .btn-selected').css('width')) / 2))
         }
         updateCategorieInfo($(this).attr('btn'));
@@ -139,9 +139,9 @@ function updateCategorieInfo(index) {
                 </div>
             </div>
             <div class="content">`;
-        
+
         let flex = false;
-        
+
         cat.items.forEach(function (item, i) {
             if (item.type === 'Plug') {
                 html += `<div class="row">
@@ -161,9 +161,9 @@ function updateCategorieInfo(index) {
         });
         html += `</div></div>`;
         container.append(html);
-        
+
         let cont = $('.info .plug')
-        if(!flex && cont.length){
+        if (!flex && cont.length) {
             cont[cont.length - 1].remove();
         }
     })
@@ -179,48 +179,41 @@ function getConfig(option) {
             master_categories: [{
                     name: 'Field-Term',
                     categories: [{
-                            name: '6A',
-                            items: [{
+                        name: '6A',
+                        items: [{
                                 type: 'Cable',
                                 part_number: '10GXS13 / 10GXS12',
                                 recommended: true
-                            }]
-                        },
-                        {
-                            name: '6A / 6+',
-                            items: [{
+                            },
+                            {
                                 type: 'Plug',
                                 part_number: 'RVAFPUBK-S1',
                                 recommended: false
-                            }]
-                        }
-                    ]
+                            },
+                            {
+                                type: 'FlexPlug',
+                                part_number: 'RVAFFPUEW36O-S1',
+                                recommended: true
+                            }
+                        ]
+                    }]
                 },
                 {
                     name: 'Pre-Term',
                     categories: [{
-                            name: '6A',
-                            items: [{
+                        name: '6+',
+                        items: [{
+                                type: 'Cable',
+                                part_number: '2413 / 2412',
+                                recommended: false
+                            },
+                            {
                                 type: 'FlexPlug',
-                                part_number: 'RVAFFPUEW36O-S1',
-                                recommended: true
-                            }]
-                        },
-                        {
-                            name: '6+',
-                            items: [{
-                                    type: 'Cable',
-                                    part_number: '2413 / 2412',
-                                    recommended: false
-                                },
-                                {
-                                    type: 'FlexPlug',
-                                    part_number: 'RV6FFPUEW36O-S1',
-                                    recommended: false
-                                }
-                            ]
-                        }
-                    ]
+                                part_number: 'RV6FFPUEW36O-S1',
+                                recommended: false
+                            }
+                        ]
+                    }]
                 }
             ],
             menu: 'menu.html?option=03'
@@ -370,7 +363,7 @@ function getConfig(option) {
                             name: '6A',
                             items: [{
                                     type: 'Cable Assembly',
-                                    part_number: 'CN06AUCTPBxxx',
+                                    part_number: 'CN01AUTPBxxx',
                                     recommended: false,
                                 },
                                 {
@@ -389,7 +382,7 @@ function getConfig(option) {
                             name: '6+',
                             items: [{
                                     type: 'Cable Assembly',
-                                    part_number: 'CN066UCTPBxxx',
+                                    part_number: 'CN016UTPBxxx',
                                     recommended: false,
                                 },
                                 {
@@ -427,6 +420,11 @@ function getConfig(option) {
                                     type: 'Plug',
                                     part_number: 'RVAFPUBK-S1',
                                     recommended: false,
+                                },
+                                {
+                                    type: 'FlexPlug',
+                                    part_number: 'RVAFFPUEW360-S1',
+                                    recommended: false,
                                 }
                             ]
                         },
@@ -440,6 +438,11 @@ function getConfig(option) {
                                 {
                                     type: 'Plug',
                                     part_number: 'RVAFPUBK-S1',
+                                    recommended: false,
+                                },
+                                {
+                                    type: 'FlexPlug',
+                                    part_number: 'RVAFFPUEW360-S1',
                                     recommended: false,
                                 }
                             ]
@@ -459,6 +462,11 @@ function getConfig(option) {
                                     type: 'Plug',
                                     part_number: 'RVAFPUBK-S1',
                                     recommended: false,
+                                },
+                                {
+                                    type: 'FlexPlug',
+                                    part_number: 'RVAFFPUEW360-S1',
+                                    recommended: false,
                                 }
                             ]
                         },
@@ -472,6 +480,11 @@ function getConfig(option) {
                                 {
                                     type: 'Plug',
                                     part_number: 'RVAFPUBK-S1',
+                                    recommended: false,
+                                },
+                                {
+                                    type: 'FlexPlug',
+                                    part_number: 'RVAFFPUEW360-S1',
                                     recommended: false,
                                 }
                             ]
@@ -852,26 +865,25 @@ function getConfig(option) {
                 },
                 {
                     name: 'Pre-Term',
-                    categories: [
-                        // {
-                        //     name: '6A',
-                        //     items: [{
-                        //             type: 'Cable Assembly',
-                        //             part_number: 'CN06AUCTPBxxx',
-                        //             recommended: false,
-                        //         },
-                        //         {
-                        //             type: 'Jacks',
-                        //             part_number: 'RVAMJKUxx-S1',
-                        //             recommended: false,
-                        //         },
-                        //         {
-                        //             type: 'Patchcords',
-                        //             part_number: 'CA21106007',
-                        //             recommended: true,
-                        //         }
-                        //     ]
-                        // },
+                    categories: [{
+                            name: '6A',
+                            items: [{
+                                    type: 'Cable Assembly',
+                                    part_number: 'CN06AUCTPBxxx',
+                                    recommended: false,
+                                },
+                                {
+                                    type: 'Jacks',
+                                    part_number: 'RVAMJKUxx-S1',
+                                    recommended: false,
+                                },
+                                {
+                                    type: 'Patchcords',
+                                    part_number: 'CA21106007',
+                                    recommended: true,
+                                }
+                            ]
+                        },
                         {
                             name: '6+',
                             items: [{
