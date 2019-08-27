@@ -545,7 +545,7 @@ function getConfig(option) {
                 {
                     name: 'STP',
                     categories: [{
-                            name: 'HDBaseT',
+                            name: '4K',
                             items: [{
                                     type: 'Cable',
                                     part_number: '2183',
